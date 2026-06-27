@@ -36,5 +36,6 @@ It is built around a token-based architecture, making it easy to add new languag
 ### HTML Rendering
 
 ```java
-Renderer renderer = new JavaScriptHtmlRenderer();
+Renderer jsRenderer = new JavaScriptHtmlRenderer();
+Renderer javaRenderer = new JavaHtmlRenderer();
 String html = renderer.paint(sourceCode);
