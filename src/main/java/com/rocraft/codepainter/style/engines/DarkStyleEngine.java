@@ -1,10 +1,9 @@
 package com.rocraft.codepainter.style.engines;
 
-import com.rocraft.codepainter.color.TokenStyle;
 import com.rocraft.codepainter.style.StyleEngine;
 import com.rocraft.codepainter.token.Token;
 
-public class DefaultStyleEngine implements StyleEngine {
+public class DarkStyleEngine implements StyleEngine {
 
     @Override
     public String css() {
@@ -17,6 +16,11 @@ public class DefaultStyleEngine implements StyleEngine {
         pre {
             font-family: Consolas, monospace;
             white-space: pre;
+            color: #d4d4d4;
+        }
+
+        span {
+            font-size: 14px;
         }
         """;
     }
@@ -28,10 +32,10 @@ public class DefaultStyleEngine implements StyleEngine {
             case STRING -> "#CE9178";
             case NUMBER -> "#B5CEA8";
             case COMMENT -> "#6A9955";
-            case ANNOTATION -> "#DCDCAA";
             case TYPE -> "#4EC9B0";
-            case NAME -> "#9CDCFE";
-            default -> "#D4D4D4";
+            case SYMBOL -> "#D4D4D4";
+            case ANNOTATION, FUNCTION -> "#DCDCAA";
+            default -> "#9CDCFE";
         } + "\"";
     }
 

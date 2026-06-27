@@ -1,8 +1,7 @@
-package com.rocraft.codepainter.utils;
+package com.rocraft.codepainter.token;
 
 import com.rocraft.codepainter.language.LanguageRules;
-import com.rocraft.codepainter.token.Token;
-import com.rocraft.codepainter.token.TokenType;
+import com.rocraft.codepainter.utils.CharIterator;
 
 import java.util.Iterator;
 
@@ -25,9 +24,9 @@ public class TokenIterator implements Iterator<Token> {
     public Token next() {
         char c = iterator.peek();
 
-        for (TokenType type : TokenType.values()) {
-            if (type.canStart(c, languageRules))
-                return type.read(iterator, new StringBuilder());
+        for (TokenDefinition token : languageRules.getLanguage().tokens()) {
+            if (token.type().canStart(c, languageRules))
+                return token.reader().read(iterator, new StringBuilder());
         }
 
         throw new IllegalStateException("Unknown token: " + c);

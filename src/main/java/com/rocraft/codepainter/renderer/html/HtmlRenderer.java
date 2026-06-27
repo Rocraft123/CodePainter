@@ -1,41 +1,20 @@
-package com.rocraft.codepainter.renderer.java;
+package com.rocraft.codepainter.renderer.html;
 
-import com.rocraft.codepainter.color.configs.DarkColorConfig;
-import com.rocraft.codepainter.color.painters.SimpleStylePainter;
-import com.rocraft.codepainter.color.StylePainter;
 import com.rocraft.codepainter.renderer.Renderer;
+import com.rocraft.codepainter.style.StyleEngine;
 
-import java.io.*;
-import java.nio.file.Files;
+public abstract class HtmlRenderer implements Renderer {
 
-public abstract class JavaRenderer implements Renderer {
+    protected final StyleEngine styleEngine;
+    protected final HtmlWriter htmlWriter;
 
-    public static final SimpleStylePainter DEFAULT_STYLE_PAINTER = new SimpleStylePainter(
-            new DarkColorConfig());
-
-    protected final StylePainter stylePainter;
-
-    public JavaRenderer() {
-        this.stylePainter = DEFAULT_STYLE_PAINTER;
+    public HtmlRenderer(StyleEngine styleEngine) {
+        this.styleEngine = styleEngine;
+        this.htmlWriter = new HtmlWriter(styleEngine);
     }
 
-    public JavaRenderer(StylePainter stylePainter) {
-        this.stylePainter = stylePainter;
-    }
-
-    @Override
-    public void paint(File file) throws IOException {
-        String string = Files.readString(file.toPath());
-        String painted = paint(string);
-
-        Files.writeString(file.toPath(), painted);
-    }
-
-    @Override
-    public void paint(File file, File to) throws IOException {
-        String string = Files.readString(file.toPath());
-        String painted = paint(string);
-
-        Files.writeString(to.toPath(), painted);
+    public HtmlRenderer(StyleEngine styleEngine, HtmlWriter htmlWriter) {
+        this.styleEngine = styleEngine;
+        this.htmlWriter = htmlWriter;
     }
 }

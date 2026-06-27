@@ -1,4 +1,6 @@
-package com.rocraft.codepainter.renderer.json;
+package com.rocraft.codepainter.renderer.json.values;
+
+import com.rocraft.codepainter.renderer.json.JsonValue;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,6 +13,10 @@ public class JsonObject implements JsonValue {
     public JsonObject add(String key, JsonValue value) {
         values.put(key, value);
         return this;
+    }
+
+    public Map<String, JsonValue> getValues() {
+        return values;
     }
 
     @Override

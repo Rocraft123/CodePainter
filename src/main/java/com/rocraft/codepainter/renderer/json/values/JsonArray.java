@@ -1,4 +1,6 @@
-package com.rocraft.codepainter.renderer.json;
+package com.rocraft.codepainter.renderer.json.values;
+
+import com.rocraft.codepainter.renderer.json.JsonValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +15,16 @@ public class JsonArray implements JsonValue {
         return this;
     }
 
+    public List<JsonValue> getValues() {
+        return values;
+    }
+
     @Override
     public String toJson() {
         StringJoiner joiner = new StringJoiner(", ", "[", "]");
 
-        for (JsonValue value : values) {
+        for (JsonValue value : values)
             joiner.add(value.toJson());
-        }
-
         return joiner.toString();
     }
 }

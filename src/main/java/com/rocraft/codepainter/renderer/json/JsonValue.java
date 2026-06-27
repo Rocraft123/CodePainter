@@ -1,4 +1,6 @@
 package com.rocraft.codepainter.renderer.json;
 
-public class JsonValue {
+@FunctionalInterface
+public interface JsonValue {
+    String toJson();
 }

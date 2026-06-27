@@ -1,4 +1,4 @@
 package com.rocraft.codepainter.token;
 
-public class Token {
+public record Token(TokenType type, String context) {
 }

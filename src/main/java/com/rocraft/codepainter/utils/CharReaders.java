@@ -2,10 +2,14 @@ package com.rocraft.codepainter.utils;
 
 import java.util.function.Predicate;
 
-public class IteratorUtils {
+public class CharReaders {
 
     public static String readUntilWhitespace(CharIterator iterator) {
         return readUntil(iterator, it -> Character.isWhitespace(it.peek()));
+    }
+
+    public static String readWhile(CharIterator iterator, Predicate<CharIterator> stopCondition) {
+        return readUntil(iterator, it -> !stopCondition.test(it));
     }
 
     public static String readUntil(CharIterator iterator, Predicate<CharIterator> stopCondition) {

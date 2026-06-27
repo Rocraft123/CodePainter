@@ -1,4 +1,10 @@
 package com.rocraft.codepainter.style;
 
-public class StyleEngine {
+import com.rocraft.codepainter.token.Token;
+
+public interface StyleEngine {
+    String css();
+    String tokenStyle(Token token);
+    String wrapStart();
+    String wrapEnd();
 }
