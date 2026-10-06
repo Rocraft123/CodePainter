@@ -1,4 +1,4 @@
-package com.rocraft.codepainter.token;
+package com.rocraft.codepainter.node;
 
 public enum NodeType {
     PACKAGE,
@@ -29,5 +29,6 @@ public enum NodeType {
 
     COMMENT,
 
-    BLOCK
+    BLOCK,
+    UNKNOWN
 }

@@ -17,6 +17,6 @@ public class Main {
         File out = Paths.get("src/main/resources/out.html").toFile();
 
         renderer.paint(in, out);
-        System.out.println("Finished in: " + (System.currentTimeMillis() - start) + "ms");
+        IO.println("Finished in: " + (System.currentTimeMillis() - start) + "ms");
     }
 }

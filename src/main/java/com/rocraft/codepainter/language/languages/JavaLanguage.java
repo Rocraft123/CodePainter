@@ -1,6 +1,9 @@
 package com.rocraft.codepainter.language.languages;
 
 import com.rocraft.codepainter.language.Language;
+import com.rocraft.codepainter.node.NodeDefinition;
+import com.rocraft.codepainter.node.NodeType;
+import com.rocraft.codepainter.node.parsers.java.JPackageParser;
 import com.rocraft.codepainter.token.Token;
 import com.rocraft.codepainter.token.TokenDefinition;
 import com.rocraft.codepainter.token.TokenType;
@@ -24,6 +27,33 @@ public class JavaLanguage implements Language {
     );
 
     private final NameReader nameReader = new NameReader(this);
+
+    @Override
+    public List<NodeDefinition> nodes() {
+        return List.of(
+                NodeDefinition.of(NodeType.PACKAGE, new JPackageParser()),
+                NodeDefinition.of(NodeType.IMPORT, null),
+                NodeDefinition.of(NodeType.CLASS, null),
+                NodeDefinition.of(NodeType.INTERFACE, null),
+                NodeDefinition.of(NodeType.ENUM, null),
+                NodeDefinition.of(NodeType.RECORD, null),
+                NodeDefinition.of(NodeType.METHOD, null),
+                NodeDefinition.of(NodeType.CONSTRUCTOR, null),
+                NodeDefinition.of(NodeType.FIELD, null),
+                NodeDefinition.of(NodeType.LOCAL_VARIABLE, null),
+                NodeDefinition.of(NodeType.IF, null),
+                NodeDefinition.of(NodeType.ELSE, null),
+                NodeDefinition.of(NodeType.SWITCH, null),
+                NodeDefinition.of(NodeType.CASE, null),
+                NodeDefinition.of(NodeType.FOR, null),
+                NodeDefinition.of(NodeType.WHILE, null),
+                NodeDefinition.of(NodeType.DO_WHILE, null),
+                NodeDefinition.of(NodeType.TRY, null),
+                NodeDefinition.of(NodeType.CASE, null),
+                NodeDefinition.of(NodeType.COMMENT, null),
+                NodeDefinition.of(NodeType.BLOCK, null)
+        );
+    }
 
     @Override
     public List<TokenDefinition> tokens() {

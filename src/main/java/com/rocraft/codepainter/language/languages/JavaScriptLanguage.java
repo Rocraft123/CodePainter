@@ -1,6 +1,7 @@
 package com.rocraft.codepainter.language.languages;
 
 import com.rocraft.codepainter.language.Language;
+import com.rocraft.codepainter.node.NodeDefinition;
 import com.rocraft.codepainter.token.Token;
 import com.rocraft.codepainter.token.TokenDefinition;
 import com.rocraft.codepainter.token.TokenType;
@@ -25,6 +26,11 @@ public class JavaScriptLanguage implements Language {
             "public", "async", "await", "as", "from", "get", "set", "of",
             "null", "true", "false"
     );
+
+    @Override
+    public List<NodeDefinition> nodes() {
+        return List.of();
+    }
 
     @Override
     public List<TokenDefinition> tokens() {
